@@ -1,0 +1,520 @@
+﻿* {
+    -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
+}
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    font-size: 11pt;
+}
+
+canvas {
+    outline: none;
+}
+
+.panel button {
+    border: none;
+    font-size: 11pt;
+    font-weight: normal;
+    padding: 10px 15px;
+    display: inline;
+    margin: 0 5px 10px 0;
+    background-color: #e5e5e5;
+    border-radius: 5px;
+    cursor: pointer;
+    position: initial;
+}
+
+.panel {
+    position: absolute;
+    right: 10px;
+    top: 100px;
+    width: 400px;
+    max-height: calc(100vh - 300px);
+    overflow-y: auto;
+    background-color: #fff;
+    padding: 10px 20px 30px 20px;
+    box-sizing: border-box;
+    border-radius: 13px;
+    transition: 0.3s;
+    z-index: 1;
+    box-shadow: 0px 1px 5px rgb(0 0 0 / 5%);
+}
+
+.hidepanelbtn {
+    position: absolute;
+    right: 410px;
+    top: 100px;
+    background-color: #fff;
+    padding: 15px 0px 15px 5px;
+    border-bottom-left-radius: 13px;
+    border-top-left-radius: 13px;
+    box-shadow: -3px 1px 3px rgb(0 0 0 / 3%);
+    transition: 0.3s;
+    z-index: 2;
+}
+
+.panelscroll {
+    overflow-y: auto;
+}
+
+.canvascontainer {
+    top: 0;
+    z-index: 0;
+    width: 100%;
+    height: calc(100vh - 80px);
+    overflow: hidden;
+    border-bottom: 2px solid #d1d1d1;
+    box-shadow: 0px 0px 10px #d0d0d0;
+}
+
+.header {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+}
+
+label.movebtn {
+    border-radius: 13px;
+    width: 50px;
+    height: 50px;
+    box-shadow: 0 1px 5px rgb(0 0 0 / 10%);
+    display: inline-block;
+    margin: 5px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+input[type=range] {
+    width: calc(100% - 50px);
+}
+
+label.movebtn > input:checked ~ span {
+    background-color: #ffde55;
+    transition: 0.2s;
+}
+
+label.movebtn > input {
+    display: none;
+}
+
+label.movebtn > span {
+    width: 100%;
+    height: 100%;
+    display: block;
+    font-size: 0;
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: 0.2s;
+}
+
+label.movebtn.tilt3d span {
+    background-image: url(https://fakeclients.com/imgs/tilticon.svg);
+}
+
+label.movebtn.roll3d span {
+    background-image: url(https://fakeclients.com/imgs/rollicon.svg);
+}
+
+label.movebtn.rotate3d span {
+    background-image: url(https://fakeclients.com/imgs/rotateicon.svg);
+}
+
+label.movebtn.move3d span {
+    background-image: url(https://fakeclients.com/imgs/moveicon.svg);
+}
+
+.controls {
+    position: absolute;
+    z-index: 1;
+    left: 5px;
+    top: 100px;
+}
+
+.checkbox+label {
+    position: relative;
+    left: -20px;
+    cursor: pointer;
+    padding: 0
+}
+
+.checkbox+label:before {
+    content: '';
+    margin-right: 10px;
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    position: relative;
+    top: 1px;
+    border-radius: 5px;
+    background: #fff;
+    box-shadow: 0 0 0 2px #cecece
+}
+
+.checkbox:hover+label:before {
+    background: #ffde55
+}
+
+.checkbox:focus+label:before {
+    box-shadow: 0 0 0 2px #cecece
+}
+
+.checkbox:checked+label:before {
+    background: #ffde55
+}
+
+.checkbox:disabled+label {
+    color: #b8b8b8;
+    cursor: auto
+}
+
+.checkbox:disabled+label:before {
+    box-shadow: none;
+    background: #ddd
+}
+
+.checkbox:checked+label:after {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 6px;
+    background: #fff;
+    width: 3px;
+    height: 3px;
+    box-shadow: 2px 0 0 #fff,4px 0 0 #fff,4px -2px 0 #fff,4px -4px 0 #fff,4px -6px 0 #fff,4px -8px 0 #fff,4px -10px 0 #fff;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg)
+}
+
+h3 {
+    display: inline-block;
+    width: calc(100% - 50px);
+    cursor: pointer;
+}
+
+summary img {
+    margin-right: 10px;
+    position: relative;
+    top: 5px;
+}
+
+summary {
+    cursor: pointer;
+    margin-bottom: 5px;
+}
+
+.opensettingsbtn {
+    text-align: center;
+    display: none;
+}
+
+.opensettingsbtn svg {
+    margin: 0px auto;
+    display: block;
+}
+
+.signinbutton {
+    display: none;
+}
+
+h1.header-h1 {
+    font-size: 21pt;
+    display: block;
+    margin: 0;
+}
+
+h1.header-h1:after {
+    display: none;
+}
+
+.about {
+    margin-top: 80px;
+}
+
+table tr td:nth-child(1) {
+    width: 100px;
+}
+
+th {
+    text-align: left;
+}
+
+input.sizerangenr {
+    width: 40px;
+    padding: 0;
+    margin: 0 0 0 5px;
+    border: none !important;
+    background: none !important;
+    box-shadow: none;
+}
+
+.social {
+    display: none;
+}
+
+.infopointer {
+    text-align: center;
+    font-size: 14pt;
+    margin-top: 20px;
+}
+
+.about img {
+    max-width: 100%;
+    margin: 40px auto 0px auto;
+    display: block;
+    width: 600px;
+}
+
+.about i {
+    text-align: center;
+    display: block;
+    color: #878787;
+}
+
+.presetinfo {
+    position: absolute;
+    background-color: #fff;
+    font-size: 10pt;
+    padding: 10px 30px;
+    z-index: 1;
+    border-radius: 13px;
+    box-shadow: 0 2px 15px 0 rgb(43 43 43 / 10%);
+    border: 1px solid #e5e5e5;
+    left: 50%;
+    height: 54px;
+    box-sizing: border-box;
+    transform: translate(-50%, -125%);
+    max-width: 330px;
+    width: 100%;
+    display: none;
+}
+
+span.presetinfopointer {
+    width: 15px;
+    height: 15px;
+    transform: rotate(45deg) translate(-27px, -3px);
+    background-color: #fff;
+    position: absolute;
+    border: 1px solid #e5e5e5;
+    border-top: none;
+    border-left: none;
+    z-index: 1;
+    display: none;
+}
+
+.presetinfoicon:hover ~ .presetinfo, .presetinfoicon:hover ~ span.presetinfopointer {
+    display: initial;
+    animation: fadeIn 0.2s;
+}
+
+.setposebtn:active .presetinfo, .setposebtn:active span.presetinfopointer  {
+    display: none;
+}
+
+img.presetinfoicon {
+    width: 15px;
+    height: 15px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+.controlshint {
+    display: none;
+    position: absolute;
+    height: 0;
+    width: 0;
+    left: 80px;
+    top: 65px;
+    z-index: 1;
+}
+
+.controlshintinner {
+    width: 180px;
+    border-radius: 13px;
+    left: 0;
+    top: 0;
+    background-color: #fff;
+    border: 1px solid #ededed;
+    padding: 10px 15px 10px 15px;
+    position: absolute;
+    box-shadow: 0 1px 2px rgb(0 0 0/5%),0 4px 18px rgb(0 0 0/5%);
+    animation: float 6s ease-in-out infinite;
+}
+
+.controlshintinner:after {
+    content: "";
+    width: 20px;
+    height: 20px;
+    transform: rotate(-45deg);
+    background-color: #fff;
+    position: absolute;
+    left: -12px;
+    top: 25px;
+    border: 1px solid #dbdbdb;
+    border-bottom: none;
+    border-right: none;
+}
+
+#closecontrolshint {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    cursor: pointer;
+    top: 5px;
+    right: 5px;
+    opacity: .5;
+}
+
+.control:hover .controlhint {
+    display: initial;
+    animation: fadeIn 0.2s;
+}
+
+.controlhint {
+    display: none;
+    position: absolute;
+}
+
+.controlhintinner {
+    width: 180px;
+    box-sizing: border-box;
+    border-radius: 13px;
+    left: 10px;
+    top: 5px;
+    background-color: #fff;
+    border: 1px solid #ededed;
+    padding: 10px 15px 10px 15px;
+    position: relative;
+    box-shadow: 0 1px 2px rgb(0 0 0/5%),0 4px 18px rgb(0 0 0/5%);
+}
+
+.controlhintinner:after {
+    content: "";
+    width: 15px;
+    height: 15px;
+    transform: rotate(-45deg);
+    background-color: #fff;
+    position: absolute;
+    left: -9px;
+    top: 17px;
+    border: 1px solid #dbdbdb;
+    border-bottom: none;
+    border-right: none;
+}
+
+.controlhintinner i {
+    color: grey;
+    margin-top: 10px;
+    display: block;
+}
+
+img.headerlogo {
+    width: 100px;
+    margin: 10px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+
+@media only screen and (max-width: 759px) {
+    img.headerlogo {
+        display: none;
+    }
+    .panel {
+        bottom: 115px;
+        width: calc(100vw - 40px);
+        padding: 0;
+        height: 115px;
+        top: initial;
+        left: 50%;
+        transform: translate(-50%, 100%);
+        position: fixed;
+        overflow-y: hidden;
+        transition: 0.3s;
+    }
+    .panel .panelscroll {
+        padding: 10px 20px 60px 20px;
+        box-sizing: border-box;
+        overflow-y: scroll;
+    }
+    .panel.expanded {
+        bottom: 0px;
+        transform: translate(-50%, 0%);
+        height: calc(100vh * 0.7);
+        max-height: initial;
+        padding-bottom: 68px;
+        overflow-y: hidden;
+        transition: 0.3s;
+    }
+    .panel.expanded .opensettingsbtn svg {
+        transform: rotate(180deg);
+    }
+    .panel.expanded .panelscroll {
+        overflow-y: scroll;
+        height: calc(100vh * 0.7 - 130px);
+        padding-bottom: 100px;
+    }
+    .controls {
+        top: 0;
+        left: 0;
+    }
+    label.movebtn {
+        width: 45px;
+        height: 45px;
+        margin: 5px 0px 0px 5px;
+    }
+    .opensettingsbtn {
+        display: block;
+        padding-bottom: 10px;
+    }
+    .header {
+        z-index: 2;
+    }
+    h1.header-h1 {
+        font-size: 16pt;
+    }
+    .about p {
+        font-size: 11pt;
+    }
+    .aboutsection {
+        padding: 30px 20px;
+    }
+    .hidepanelbtn {
+        display: none;
+    }
+    .controlhint {
+        display: none !important;
+    }
+}
+
+@media only screen and (min-width: 759px) {
+    .panel {
+        border-top-left-radius: 0;
+    }
+    .panel.hidden {
+        transform: translateX(100%);
+    }
+    .hidepanelbtn.hidden {
+        right: 10px;
+    }
+    .hidepanelbtn.hidden svg {
+        transform: rotate(270deg) !important;
+    }
+}
+
+@media only screen and (min-width: 1700px) {
+    .panel {
+        width: 500px;
+    }
+    .hidepanelbtn {
+        right: 510px;
+    }
+    .presetinfo {
+        max-width: 430px;
+    }
+}
