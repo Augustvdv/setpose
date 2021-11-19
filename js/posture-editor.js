@@ -164,9 +164,6 @@ cbRotX.addEventListener('click', processCheckBoxes);
 cbRotY.addEventListener('click', processCheckBoxes);
 cbMovY.addEventListener('click', processCheckBoxes);
 
-btnGetPosture.addEventListener('click', getPosture);
-btnSetPosture.addEventListener('click', setPosture);
-
 controls.addEventListener('start', function () {
 	renderer.setAnimationLoop(drawFrame);
 });
