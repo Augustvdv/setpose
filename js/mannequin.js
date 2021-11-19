@@ -413,7 +413,7 @@ class Joint extends THREE.Group {
 	select(state) {
 		this.traverse(function (o)
 		{
-			if (o.material && o.material.emissive) o.material.emissive.setRGB(state ? 0 : 0, state ? -0.130 : 0, state ? -0.666 : 0);
+			if (o.material && o.material.emissive) o.material.emissive.setRGB(state ? 0 : 0, state ? -0.35 : 0, state ? -0.35 : 0);
 		});
 	} // Joint.select
 } // Joint
